@@ -5,7 +5,7 @@ var LibraryEntryView = Backbone.View.extend({
 
   template: _.template('<td class="enqueue">(<%= artist %>)</td>' +
                         '<td class="enqueue"><%= title %></td>' +
-                        '<td class="enqueue">plays: <%= playCount %></td>' +
+                        '<td>plays: <%= playCount %></td>' +
                         '<td class="up">up: <span><%= upvotes %></span></td>' +
                         '<td class="down">down: <span><%= downvotes %></span></td>'),
 
