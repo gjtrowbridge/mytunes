@@ -10,14 +10,10 @@ var SongQueue = Songs.extend({
     }, this);
 
     this.on('ended', function(song) {
-      console.log('ended:');
-      console.log(song);
       song.dequeue();
     }, this);
 
     this.on('dequeue', function(song) {
-      console.log('dequeuing');
-      console.log(song);
       if (this.at(0) === song) {
         this.remove(song);
         if (this.length !== 0) {
@@ -29,7 +25,7 @@ var SongQueue = Songs.extend({
     }, this);
 
     this.on('enqueue', function(song) {
-      if (this.at(0) === song) {
+      if (this.at(0) === song && !song.get('playing')) {
         this.playFirst();
       }
     }, this);
