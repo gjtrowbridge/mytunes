@@ -31,4 +31,23 @@ describe('LibraryEntryView', function() {
     SongModel.prototype.enqueue.restore();
   });
 
+  it('clicks upvote', function(){
+    sinon.spy(SongModel.prototype, 'upvote');
+
+    view.$el.find('td.up').click();
+    expect(model.upvote).to.have.been.called;
+
+    SongModel.prototype.upvote.restore();
+  });
+
+  it('clicks downvote', function(){
+    sinon.spy(SongModel.prototype, 'downvote');
+
+    view.$el.find('td.down').click();
+    expect(model.downvote).to.have.been.called;
+
+    SongModel.prototype.downvote.restore();
+  });
+
+
 });
